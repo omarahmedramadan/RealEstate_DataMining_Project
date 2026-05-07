@@ -83,8 +83,14 @@ with tab1:
 
     # Simple training of the model on the fly for prediction
     # Preprocessing categorical data for the model
+   # Preprocessing categorical data for the model
     df_model = pd.get_dummies(df, columns=['neighbourhood_group', 'room_type'], drop_first=True)
-    X = df_model.drop(columns=['price', 'id', 'host_id', 'latitude', 'longitude', 'neighbourhood', 'last_review'], errors='ignore')
+    
+    # Drop all text and unnecessary columns ('name' and 'host_name' added here)
+    X = df_model.drop(columns=['price', 'id', 'name', 'host_name', 'host_id', 'latitude', 'longitude', 'neighbourhood', 'last_review'], errors='ignore')
+    
+    # Force X to only keep numeric columns to prevent ValueError
+    X = X.select_dtypes(include=['number', 'bool'])
     y = df_model['price']
     
     model = LinearRegression()
