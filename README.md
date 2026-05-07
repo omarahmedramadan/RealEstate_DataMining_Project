@@ -34,3 +34,8 @@
 1. **Clone the repository:** `git clone https://github.com/omarahmedramadan/RealEstate_DataMining_Project.git`
 2. **Install dependencies:** `pip install -r requirements.txt`
 3. **Run the analysis:** Open the Jupyter Notebook files to view the data cleaning steps and upcoming modeling.
+
+
+# NYC Airbnb Real Estate Data Mining Project 🏠
+
+https://realestatedataminingproject-9dbp2spwabh95vluwhpqgz.streamlit.app/
