@@ -12,7 +12,7 @@ st.set_page_config(page_title="NYC Airbnb Real Estate Dashboard", layout="wide")
 @st.cache_data
 def load_data():
     # تأكد من أن اسم الملف مطابق للملف الموجود عندك
-    df = pd.read_csv("airbnb_cleaned.csv")
+    df = pd.read_csv("RealEstate_DataMining_Project_code/airbnb_cleaned.csv")
     df['reviews_per_month'] = df['reviews_per_month'].fillna(0)
     # تنظيف سريع للقيم الشاذة للعرض فقط
     q = df['price'].quantile(0.95)
