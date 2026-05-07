@@ -83,7 +83,7 @@ with tab1:
 
     # Simple training of the model on the fly for prediction
     # Preprocessing categorical data for the model
-   # Preprocessing categorical data for the model
+    # Preprocessing categorical data for the model
     df_model = pd.get_dummies(df, columns=['neighbourhood_group', 'room_type'], drop_first=True)
     
     # Drop all text and unnecessary columns ('name' and 'host_name' added here)
@@ -118,7 +118,7 @@ with tab1:
     # Regression Chart
     st.markdown("---")
     fig_reg = px.scatter(df_filtered, x="number_of_reviews", y="price", color="room_type", 
-                         trendline="ols", title="Impact of Reviews on Price")
+                            trendline="ols", title="Impact of Reviews on Price")
     st.plotly_chart(fig_reg, use_container_width=True)
 
 # --- TAB 2: Market Segmentation (K-Means Clustering) ---
@@ -154,12 +154,12 @@ with tab3:
     col_c1, col_c2 = st.columns(2)
     with col_c1:
         fig_pie = px.pie(df_filtered, names='Category', title="Market Split", hole=0.4,
-                         color_discrete_map={'Premium':'#005088', 'Affordable':'#11caa0'})
+                        color_discrete_map={'Premium':'#005088', 'Affordable':'#11caa0'})
         st.plotly_chart(fig_pie)
     with col_c2:
         fig_bar = px.bar(df_filtered.groupby(['neighbourhood_group', 'Category']).size().reset_index(name='count'), 
-                         x='neighbourhood_group', y='count', color='Category', barmode='group',
-                         title="Inventory by Neighborhood and Category")
+                            x='neighbourhood_group', y='count', color='Category', barmode='group',
+                            title="Inventory by Neighborhood and Category")
         st.plotly_chart(fig_bar)
 
 # --- TAB 4: Anomaly Detection (Identifying Outliers) ---
@@ -178,8 +178,8 @@ with tab4:
     
     # Scatter plot of anomalies
     fig_ano = px.scatter(df_filtered, x="price", y="number_of_reviews", color="Status",
-                         color_discrete_map={'Normal':'#cbd5e1', 'Anomaly':'#ff4b4b'},
-                         title="Price vs Reviews Anomaly Map")
+                            color_discrete_map={'Normal':'#cbd5e1', 'Anomaly':'#ff4b4b'},
+                            title="Price vs Reviews Anomaly Map")
     st.plotly_chart(fig_ano, use_container_width=True)
 
 # --- 6. Business Insights Sidebar ---
